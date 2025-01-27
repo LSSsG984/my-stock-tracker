@@ -1,10 +1,9 @@
+'use server';
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/db/prisma';
 import { getStockData } from '@/action/yahooService';
 
-export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
-  const symbol = searchParams.get('symbol');
+export async function getStock(symbol : string) {
 
   if (!symbol) {
     return NextResponse.json({ error: 'Symbol is required' }, { status: 400 });
@@ -25,7 +24,8 @@ export async function GET(request: Request) {
       }
     });
 
-    return NextResponse.json(stockData);
+    return stockData;
+
   } catch (error: unknown) {
     if (error instanceof Error) {
       console.error('Error:', error.message);

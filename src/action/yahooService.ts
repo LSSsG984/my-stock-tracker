@@ -1,6 +1,7 @@
+'use server';
 // src/lib/services/yahooService.ts
 import axios from 'axios';
-import { YAHOO_BASE_URL, YAHOO_HEADERS } from '../config/yahoo';
+import { YAHOO_BASE_URL, YAHOO_HEADERS } from '../lib/config/yahoo';
 
 export async function getStockData(symbol: string) {
   try {

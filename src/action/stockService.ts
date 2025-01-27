@@ -1,5 +1,6 @@
+'use server';
 import axios from 'axios';
-import prisma from '../db/prisma';
+import prisma from '../lib/db/prisma';
 
 export async function fetchStockPrice(symbol: string) {
   const apiKey = process.env.YAHOO_FINANCE_API_KEY;

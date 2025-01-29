@@ -1,48 +1,10 @@
-import UI from '@/components/ui'
-import {getStock} from "@/action/action";
+import { getStockData } from "@/action/stockService";
+import { StockClient } from '@/components/StockClient';
 
 
-
-interface StockData {
-  symbol: string;
-  name: string;
-  price: number;
-  history: {
-    timestamps: number[];
-    prices: number[];
-  };
-}
-
+// Composant serveur
 export default async function StockPage({ params }: { params: { symbol: string } }) {
-  const [stockData, setStockData] = useState<StockData | null>(null);
-  const [loading, setLoading] = useState(true);
+  const stockData = await getStockData(params.symbol);
 
-  useEffect(() => {
-    const fetchStock = async () => {
-      if (params.symbol) {
-        try {
-          const response = await fetch(`/api/stocks?symbol=${params.symbol}`);
-          const data = await response.json();
-          setStockData(data);
-        } catch (error) {
-          console.error('Error fetching stock:', error);
-        } finally {
-          setLoading(false);
-        }
-      }
-    };
-
-    fetchStock();
-  }, [params.symbol]);
-
-  if (loading) return <div>Loading...</div>;
-  if (!stockData) return <div>Stock not found</div>;
-
-  const chartData = stockData.history.timestamps.map((timestamp, index) => ({
-    date: new Date(timestamp * 1000).toLocaleDateString(),
-    price: stockData.history.prices[index],
-  }));
-
-  return (<UI data={await getStock(params.symbol
-  )}/>);
+  return <StockClient stockData={stockData} symbol={params.symbol}></StockClient>;
 }

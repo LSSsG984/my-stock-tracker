@@ -15,9 +15,9 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-8">
+    <div className="min-h-screen bg-#15202B">
       <main className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold mb-8">Stock Tracker</h1>
+        <h1 className="text-4xl font-bold mb-8 text-#E1E8ED">Stock Tracker</h1>
         <form onSubmit={handleSearch} className="mb-8">
           <input
             type="text"
@@ -45,7 +45,7 @@ export default function Home() {
           <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
             <li className="mb-2">
               Get started by editing{" "}
-              <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
+              <code className="bg-black/[.05] dark:bg-#8899A6/[.06] px-1 py-0.5 rounded font-semibold">
                 src/app/page.tsx
               </code>
               .

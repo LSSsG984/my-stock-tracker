@@ -1,6 +1,4 @@
 'use client';
-
-// src/components/StockClient.tsx
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import {StockClientProps} from "@/components/StockList";

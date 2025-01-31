@@ -24,7 +24,7 @@ export default function Home() {
             value={symbol}
             onChange={(e) => setSymbol(e.target.value.toUpperCase())}
             placeholder="Enter stock symbol (e.g., AAPL)"
-            className="p-2 border rounded mr-2"
+            className="p-3 border rounded mr-2 text-black"
           />
           <button type="submit" className="bg-blue-500 text-white p-2 rounded">
             Search
@@ -45,7 +45,7 @@ export default function Home() {
           <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
             <li className="mb-2">
               Get started by editing{" "}
-              <code className="bg-black/[.05] dark:bg-#8899A6/[.06] px-1 py-0.5 rounded font-semibold">
+              <code className="bg-black/[.05] dark:bg-#8899A6 /[.06] px-1 py-0.5 rounded font-semibold">
                 src/app/page.tsx
               </code>
               .

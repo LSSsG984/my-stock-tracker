@@ -1,3 +1,4 @@
+//accès à la base de données
 datasource db {
     provider = "postgresql"
     url = env("DATABASE_URL")
@@ -7,6 +8,7 @@ generator client {
     provider = "prisma-client-js"
 }
 
+// table utilisateurs
 model User {
     id       Int     @id @default(autoincrement())
     email    String  @unique
@@ -15,6 +17,7 @@ model User {
     alerts   Alert[] @relation("UserAlerts")
 }
 
+//
 model Stock {
   id        Int             @id @default(autoincrement())
   symbol    String          @unique
